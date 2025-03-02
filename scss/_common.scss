@@ -1,0 +1,129 @@
+/* ========================
+   ブレークポイント
+========================= */
+$breakpoints: ('sm-min': '(min-width: 576px)',
+        'sm-max': '(max-width: 575px)',
+        'md-min': '(min-width: 768px)',
+        'md-max': '(max-width: 767px)',
+    );
+@mixin mq($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        // 指定されたキーが存在するか確認
+        @media #{map-get($breakpoints, $breakpoint)} {
+            @content;
+        }
+    }
+    @else {
+        @warn "ブレークポイント #{$breakpoint} は定義されていません。";
+    }
+}
+/* ========================      
+   font   
+========================= */
+// ベースフォント
+$font-base: "hiragino-kaku-gothic-pron", sans-serif;
+// キャッチコピーフォント
+$font-catch: "Zen Kaku Gothic Antique", serif;
+/* ========================  
+   カラー設定  
+========================= */
+$baseColor: #1B1B1B;
+$sectionBgColor: #ECECEC; //明るい灰色 
+$lightgrey: #CBCBCB; //タイトルの英語と数字          
+/* ========================     
+   基本スタイル設定
+========================= */
+html {
+    font-size: 62.5%;
+    /* rem の基準を 10px に */
+    scroll-behavior: smooth;
+}
+body {
+    color: $baseColor;
+    font-family: $font-base;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/* ========================     
+   レイアウト 
+========================= */
+.c-width {
+    max-width: 1280px;
+    margin: 0 auto;
+    &--onlyAccess {
+        max-width: 1080px;
+        margin: 0 auto;
+    }
+}
+.p-section {
+    padding: 0 2.4rem;
+}
+/* ======================== 
+   セクション全体のスタイル
+========================= */
+.l-section {
+    margin-top: 10rem;
+    @include mq (md-max) {
+        margin-top: 7rem;
+    }
+}
+/* ========================    
+   見出しのスタイル
+========================= */
+.c-section-title {
+    font-size: 3.6rem;
+    font-weight: bold;
+    line-height: 1.25;
+    display: flex;
+    flex-direction: column;
+    @include mq(md-max) {
+        font-size: 2.4rem;
+        align-items: flex-start; // SPサイズでは左寄せ 
+    }
+    &--en {
+        display: inline-block;
+        /* 独立した行にする */
+        font-size: 2rem;
+        font-weight: normal;
+        color: $lightgrey;
+        margin-bottom: 2rem;
+        line-height: 1.875;
+        font-family: "Noto Serif", serif;
+        @include mq(md-max) {
+            font-size: 1.6rem;
+            font-size: 1.5rem;
+        }
+    }
+}
+/* ========================     
+   各セクションの説明文のテキスト     　     
+========================= */
+.c-section {
+    line-height: 1.875;
+    font-size: 1.6rem;
+}
+/*表示 */
+.only_pc {
+    display: block;
+}
+.only_sp {
+    display: none;
+}
+/* スマートフォンサイズ（SP）の場合 */
+@include mq (md-max) {
+    .only_sp {
+        display: block;
+    }
+    .only_pc {
+        display: none;
+    }
+    .only_sp span {
+        display: block;
+        /* SP時のみ改行 */
+        margin-bottom: 1em;
+        /*さらに余白を追加 */
+    }
+}

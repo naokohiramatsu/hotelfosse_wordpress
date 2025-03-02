@@ -1,0 +1,609 @@
+@use 'common' as *;
+/* ========================
+   コンセプト（全体設定）
+========================= */
+.p-concept__title {
+    font-size: 3.6rem;
+    font-family: "Noto Serif", serif;
+    font-weight: 600;
+    @include mq (md-max) {
+        font-size: 2.4rem;
+    }
+}
+.p-concept__catch {
+    font-size: 2.4rem;
+    font-family: "Noto Serif", serif;
+    line-height: 1.25;
+    letter-spacing: 0.02em;
+    padding-left: 1rem;
+    @include mq (md-max) {
+        font-size: 2rem;
+        padding-left: 0;
+    }
+}
+@media (min-width: 768px) {
+    .l-concept {
+        margin-top: 300px;
+        margin-bottom: 200px;
+    }
+}
+/* ========================
+   コンセプト（pc設定）
+========================= */
+@media (min-width: 768px) {
+    .p-concept__item-img--first {
+        display: flex;
+        justify-content: space-between;
+    }
+    .p-conceptWrapper {
+        position: relative;
+    }
+    .p-concept__item-content--titleSection {
+        position: absolute;
+        top: -30rem;
+    }
+    .p-concept__item-content--description {
+        position: absolute;
+        display: block;
+        width: 39.06%;
+        /* 500px ÷ 1280px */
+        left: 38.28%;
+        /* 490px ÷ 1280px */
+        top: -150px
+    }
+    .p-concept__item-img--02 {
+        position: absolute;
+        top: -250px;
+        right: 0;
+    }
+    .p-concept__item-img--03 {
+        position: absolute;
+        width: 40%;
+        top: 70%;
+        /* 500px ÷ 1280px */
+        margin-left: 38.28%;
+        /* 490px ÷ 1280px */
+    }
+    .p-concept__item-content--description {
+        position: absolute;
+        display: block;
+        width: 40%;
+        /* 500px ÷ 1280px */
+        left: 38.28%;
+        /* 490px ÷ 1280px */
+        top: -10rem;
+        padding: 1rem
+    }
+    .p-concept__item-img--04 {
+        position: absolute;
+        left: 63%;
+        transform: translate(24%, -103%);
+    }
+}
+/* ========================
+   コンセプト（1150px以下の設定）
+========================= */
+@media (max-width: 1150px) {
+    .p-concept__item-img--03 img {
+        width: 100%;
+        height: auto;
+        margin-top: 25rem;
+    }
+    .p-concept__item-img--04 {
+        transform: translate(-0.7rem, 7rem);
+    }
+    .p-concept__item-content--description {
+        width: 30%;
+        left: 40.28%;
+        top: -16rem;
+        padding: 3rem;
+    }
+}
+/* ========================
+   コンセプト（sp設定）
+========================= */
+@media (max-width: 767px) {
+    .p-conceptWrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    .p-concept__item-img--first {
+        display: flex;
+        justify-content: space-between;
+    }
+    .p-concept__item-img--01 {
+        position: relative;
+    }
+    .p-concept__item-img--02 {
+        position: absolute;
+        top: 9rem;
+        left: 22rem;
+    }
+    .p-concept__item-img--02 img {
+        height: 17rem
+    }
+    .p-concept__item-content {
+        margin-top: 5rem;
+        margin-bottom: 9rem;
+    }
+    .p-concept__item-content--titleSection {
+        margin-bottom: 5rem;
+    }
+    .p-concept__item-img--03 {
+        position: relative;
+    }
+    .p-concept__item-img--03 img {
+        width: 25rem;
+        height: 18rem;
+        margin-top: 0;
+    }
+    .p-concept__item-img--04 {
+        position: absolute;
+        left: 21.4rem;
+        transform: translate(-4.3rem, -23.3rem);
+    }
+    .p-concept__item-img--04 img {
+        width: 17rem;
+        height: 10rem;
+    }
+    .p-concept__item-img--second {
+        padding: 0 2rem;
+    }
+}
+/* ========================
+   客室
+========================= */
+#top-room {
+    background-color: $sectionBgColor;
+    padding-bottom: 10rem;
+    @include mq (md-max) {
+        padding-bottom: 7rem;
+    }
+}
+.p-top-room__item-content--description, .c-section {
+    align-self: flex-end;
+}
+.top-room__contentWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8rem;
+    max-width: 1080px;
+    margin: auto;
+    margin-top: 30rem;
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    ;
+    @include mq (md-max) {
+        flex-direction: column;
+        align-items: flex-start; // ← SPでは左寄せに
+        justify-content: flex-start; // ← 中央揃えを解除
+        padding-left: 4rem;
+        padding-right: 4rem;
+        margin-top: 10rem;
+        padding-top: 7rem;
+        padding-left: 3.5rem;
+        padding-right: 3.5rem;
+        gap: 5rem;
+        padding-bottom: 3rem;
+    }
+}
+// PCサイズ
+@include mq(md-min) {
+    .swiper-slide picture img {
+        max-width: 700px;
+        /* 最大700px */
+        width: 100%;
+        /* 親要素の幅に合わせる */
+        height: auto;
+        /* アスペクト比を維持 */
+    }
+}
+//SPサイズ
+@include mq(md-max) {
+    .swiper-slide picture img {
+        width: 100vw;
+        max-width: 100%;
+        /* 画面幅を超えないようにする */
+        height: 230px;
+        /* 高さ固定 */
+        object-fit: cover;
+        /* トリミングして綺麗に収める */
+    }
+}
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+/* 客室の詳細はこちらボタン */
+.button-roomDetail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    max-width: 30rem;
+    width: 100%;
+    color: #fdfdfd;
+    background-color: $baseColor;
+    transition: 0.3s;
+    text-decoration: none;
+    margin: 0 auto;
+    margin-top: 5rem;
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+    @include mq (md-max) {
+        max-width: 25rem;
+        padding-top: 1.9rem;
+        padding-bottom: 1.9rem;
+    }
+    &::after {
+        content: "";
+        width: 1rem;
+        height: 1rem;
+        border-top: 2px solid #fff;
+        border-right: 2px solid #fff;
+        transform: rotate(45deg);
+        margin-left: -0.5rem;
+    }
+}
+/* ========================
+   ホテルの特徴
+========================= */
+#features{
+    max-width:1080px;
+    margin:auto;
+    }
+#features .c-section-title {
+    text-align: center;
+}
+//画像のサイズ設定
+// PCサイズ
+@include mq(md-min) {
+    .p-features-introduction__img picture img {
+        max-width: 580px;
+        width: 100%;
+        height: auto;
+    }
+}
+//SPサイズ
+@include mq(md-max) {
+    .p-features-introduction__img picture img {
+        width: 80%;
+        aspect-ratio: 29 / 21; 
+        height: auto;
+        object-fit: cover;
+        transition: width 0.3s ease, height 0.3s ease;
+    }
+}
+.p-features-introduction {
+    margin-top: 10rem;
+    @include mq (md-max) {
+        margin-top: 6rem;
+    }
+    &__item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        max-width: 100%;
+        /* 親要素の幅に対して要素がそれ以上に広がらないように制限 */
+        -moz-column-gap: 4.2rem;
+        column-gap: 4.2rem;
+        margin-bottom: 10rem;
+        @include mq (md-max) {
+            margin-bottom: 6rem;
+        }
+        &:last-child {
+            margin-bottom: 0;
+        }
+        &--reverse {
+            flex-direction: row-reverse;
+        }
+        @include mq(md-max) {
+            flex-direction: column-reverse;
+            -moz-column-gap: 0;
+            column-gap: 0;
+            align-items: center;
+        }
+    }
+}
+@media (max-width: 1000px) {
+    .p-features-introduction__item{
+    margin-bottom: 2rem;}
+    }
+.p-features-introduction__img {
+    flex: 0 0 53%;
+    /* 親要素に対して最大幅55%を設定 */
+    width: 100%;
+    /* flex: 0 0 55% の制限内で100%の幅を確保 */
+    height: auto;
+}
+@include mq(md-max) {
+    .p-features-introduction__item--reverse .p-features-introduction__img picture img {
+        display: block;
+        margin-left: auto;
+        /* 左側の余白を大きくして右寄せ */
+        margin-right: 0;
+        max-width: 80%;
+        width: 100%;
+        aspect-ratio: 29 / 21; 
+        height: auto;
+        object-fit: cover;
+        transition: width 0.3s ease, height 0.3s ease;}
+}
+/* ========================
+   ドキュメントアイテムのスタイル
+========================= */
+.p-features-introduction__DocumentItem {
+    flex: 1;
+    /* テキスト部分が残りのスペースを占有 */
+    display: flex;
+    flex-direction: column;
+    &-number {
+        font-size: 4.8rem;
+        font-family: "Noto Serif", serif;
+        color: $lightgrey;
+        font-weight: 600;
+        @include mq (md-max) {
+            font-size: 4rem;
+        }
+    }
+    &-title {
+        font-size: 2.4rem;
+        font-family: "Noto Serif", serif;
+        font-weight: 600;
+        padding-bottom: 3rem;
+        @include mq (md-max) {
+            font-size: 2rem;
+        }
+    }
+    &-text {
+        font-size: 1.6rem;
+    }
+    &__content {
+        padding-top: 6rem;
+        padding-left: 2rem;
+        @include mq (md-max) {
+            padding-left: 0;
+            padding-bottom: 4rem;
+            padding-top: 4rem;
+        }
+    }
+}
+/* ========================
+  バナー
+========================= */
+.feature_banner {
+    margin-top: 12rem;
+    @include mq (md-max) {
+        margin-top: 6rem;
+    }
+}
+.feature_banner picture img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    @include mq (md-max) {
+        height: 475px;
+    }
+}
+/* ========================
+ アクセス
+========================= */
+#access .c-section-title {
+    margin: 0;
+    align-items: normal;
+}
+
+
+  
+  .iframe-container iframe {
+    width: 100%;
+    height: 100%;
+  }
+  
+.iframe-container {
+    width: 100%;
+    height: 45rem; 
+  
+  @include mq (md-max){
+    height: 40rem;}
+  }
+  
+.bl_accessCont_info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    & .bl_accessCont_info_icon p {
+        font-size: 2rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+    }
+    &_container {
+        flex: 1;
+        /* 他のフレックスアイテムと均等に幅を取る */
+        min-width: 280px;
+        /* 小さい画面で幅が不自然に縮むのを防ぐ */
+        display: flex;
+        flex-direction: column;
+        padding-top: 7rem;
+        position: relative;
+        /* 疑似要素を配置するためにrelativeに設定 */
+        @include mq (md-max) {
+            flex-direction: column;
+            padding-top: 4rem;
+        }
+        &_icon img {
+            height: 30px;
+        }
+        /* 疑似要素による区切り線 */
+        &::after {
+            content: "";
+            position: absolute;
+            top: 3.3rem;
+            right: 0;
+            height: 80%;
+            /* 親要素の高さに合わせる */
+            border-right: 1px solid $lightgrey;
+            @include mq (md-max) {
+                left: 0;
+                bottom: 0;
+                top: 6rem;
+                border-bottom: 1px solid $lightgrey;
+                border-right: none;
+            }
+        }
+        &:last-child::after {
+            content: none;
+        }
+        &_text {
+            width: 100%;
+        }
+    }
+    &_icon {
+        //アイコンと項目の横並び
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 2.2rem;
+    }
+    &_text {
+        font-size: 14px; //あとで諸々調べる
+        line-height: 1.8;
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        /* 各項目の間隔を調整 */
+    }
+}
+.info-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+.info-label {
+    text-align: left;
+    flex-shrink: 0;
+    /* ラベルの幅を固定 */
+}
+.info-detail {
+    flex-grow: 1;
+    /* 詳細部分は自動で広がる */
+}
+/* 1つめと３つめのitem(特定の info-item のみ縦並び) */
+.info-item--block {
+    display: block;
+    /* 縦並び */
+}
+.info-item--block .info-label,
+.info-item--block .info-detail {
+    display: block;
+    /* 両方ともブロック要素にして左揃え */
+}
+@include mq (md-max) {
+    #access .l-section {
+        margin-top: 10rem;
+    }
+}
+/* ========================
+ホテル詳細
+========================= */
+.bl_accessCont_details {
+    background-color: $sectionBgColor;
+    padding: 7rem 2rem;
+}
+.bl_accessCont_details ul {
+    font-size: 1.6rem;
+    max-width: 800px;
+    margin: 0 auto;
+    transform: translate(7%, -11%);
+}
+@media (max-width: 1184px) {
+    .bl_accessCont_details ul {
+        transform: none;
+    }
+}
+.bl_accessCont_details ul li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid $lightgrey;
+    padding: 10px 0;
+}
+.bl_accessCont_details ul li div:first-of-type {
+    width: 40%;
+    font-weight: bold;
+}
+.bl_accessCont_details ul li div:last-of-type {
+    width: 55%;
+    line-height: 1.8;
+}
+/* ========================
+予約はこちらボタン
+========================= */
+.book-now_Cont {
+    margin-top: 12rem;
+    @include mq (md-max) {
+        margin-top: 10rem;
+    }
+}
+@include mq (md-max) {
+    .book-now_Cont .p-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+.book-now_Cont p {
+    font-family: "Zen Kaku Gothic Antique", sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+    @include mq (md-max) {
+        font-size: 2.4rem;
+    }
+}
+.book-now_Cont {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+/* 予約はこちらボタン */
+.button-book-now {
+    width: 30rem;
+    display: inline-block;
+    padding: 10px;
+    background-color: $lightgrey;
+    text-decoration: none;
+    line-height: 1;
+    border: 1px solid #cbcbcb;
+    margin: 6rem auto;
+    color: $baseColor;
+    @include mq (md-max) {
+        width: 25rem;
+    }
+}
+.button-book-now:hover {
+    opacity: 0.6;
+}
+.button-book-now span {
+    line-height: 1.5;
+}
+.button-book-now span:first-child {
+    font-size: 2.4rem;
+    letter-spacing: 0.1em;
+    font-weight: 600
+}
+.button-book-now span:last-child {
+    display: block;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+}
+.book-now_txt {
+    margin: 0 auto;
+}
