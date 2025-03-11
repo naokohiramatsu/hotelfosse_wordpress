@@ -337,8 +337,6 @@ img {
     width: 100vw;
     max-width: 100%;
     /* 画面幅を超えないようにする */
-    height: 230px;
-    /* 高さ固定 */
     -o-object-fit: cover;
        object-fit: cover;
     /* トリミングして綺麗に収める */
