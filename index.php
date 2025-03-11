@@ -121,30 +121,115 @@
           当ホテルは、ビジネスパーソンの多様なニーズに応える5タイプ、全61室の客室をご用意しております。<br />
           全室に高品質ベッドと個別空調を完備し、効率的な仕事と質の高い睡眠をサポートいたします。
         </p>
+        <p
+          class="p-top-room__item-content--description--sp c-section only_sp">
+          <span>当ホテルは、ビジネスパーソンの多様なニーズに応える5タイプ、<br />全61室の客室をご用意しております。</span><br />
+          <span>全室に高品質ベッドと個別空調を完備し、<br />効率的な仕事と質の高い睡眠を<br />サポートいたします。</span>
+        </p>
       </div>
 
       <!-- Swiperのスライダー -->
       <div class="swiper">
+        <!-- Wrapper for slides -->
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/room/single@2x.webp" alt="シングル">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/single.webp')); ?> 1x,
+            <?php echo esc_url(get_theme_file_uri('images/room/single@2x.webp')); ?> 2x
+          "
+                sizes="700px" />
+              <source
+                media="(max-width:767px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/single.webp')); ?> 1x
+          "
+                sizes="(max-width: 767px) 100vw" />
+              <img src="<?php echo esc_url(get_theme_file_uri('images/room/single.webp')); ?>" alt="シングル" />
+            </picture>
           </div>
+
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/room/double_204@2x.webp" alt="ダブル">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/double_204.webp')); ?> 1x,
+            <?php echo esc_url(get_theme_file_uri('images/room/double_204@2x.webp')); ?> 2x
+          "
+                sizes="700px" />
+              <source
+                media="(max-width:767px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/double_204.webp')); ?> 1x
+          "
+                sizes="(max-width: 767px) 100vw" />
+              <img src="<?php echo esc_url(get_theme_file_uri('images/room/double_204.webp')); ?>" alt="ダブル" />
+            </picture>
           </div>
+
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/room/twin@2x.webp" alt="ツイン">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/twin.webp')); ?> 1x,
+            <?php echo esc_url(get_theme_file_uri('images/room/twin@2x.webp')); ?> 2x
+          "
+                sizes="700px" />
+              <source
+                media="(max-width:767px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/twin.webp')); ?> 1x
+          "
+                sizes="(max-width: 767px) 100vw" />
+              <img src="<?php echo esc_url(get_theme_file_uri('images/room/twin.webp')); ?>" alt="ツイン" />
+            </picture>
           </div>
+
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/room/smoking@2x.webp" alt="喫煙可">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/smoking.webp')); ?> 1x,
+            <?php echo esc_url(get_theme_file_uri('images/room/smoking@2x.webp')); ?> 2x
+          "
+                sizes="700px" />
+              <source
+                media="(max-width:767px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/smoking.webp')); ?> 1x
+          "
+                sizes="(max-width: 767px) 100vw" />
+              <img src="<?php echo esc_url(get_theme_file_uri('images/room/smoking.webp')); ?>" alt="喫煙可" />
+            </picture>
           </div>
+
           <div class="swiper-slide">
-            <img src="<?php echo get_template_directory_uri(); ?>/images/room/nonsmoking@2x.webp" alt="禁煙">
+            <picture>
+              <source
+                media="(min-width:768px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/nonsmoking.webp')); ?> 1x,
+            <?php echo esc_url(get_theme_file_uri('images/room/nonsmoking@2x.webp')); ?> 2x
+          "
+                sizes="700px" />
+              <source
+                media="(max-width:767px)"
+                srcset="
+            <?php echo esc_url(get_theme_file_uri('images/room/nonsmoking.webp')); ?> 1x
+          "
+                sizes="(max-width: 767px) 100vw" />
+              <img src="<?php echo esc_url(get_theme_file_uri('images/room/nonsmoking.webp')); ?>" alt="禁煙" />
+            </picture>
           </div>
         </div>
       </div>
-    </div>
-    <a href="#" class="button-roomDetail">客室の詳細はこちら</a>
+
+      <a href="#" class="button-roomDetail">客室の詳細はこちら</a>
   </section>
 
   <!-- ホテルの特徴 -->
@@ -467,6 +552,38 @@
 
   <!-- Swiper JS -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+
+      loop: true, // 無限ループ
+      centeredSlides: false, // 
+
+
+      autoplay: {
+        delay: 3000, // 自動スライドの間隔（ミリ秒）
+        disableOnInteraction: false, // ユーザー操作後も自動再生を継続
+      },
+
+
+      pagination: false, // ドットを無効化
+      navigation: false, // 矢印を無効化
+
+      // レスポンシブ設定
+      breakpoints: {
+        768: {
+          slidesPerView: 1.5, // PCサイズ：左右少し見切れる
+          spaceBetween: 20,
+          centeredSlides: false,
+        },
+        0: {
+          slidesPerView: 1.2, // スマホサイズ：右側に少し次の画像が見える
+          spaceBetween: 10, // スライド間の余白を少し狭く
+          centeredSlides: false, // 左揃えにする
+        },
+
+      },
+    });
+  </script>
 
   <script src="js/main.js"></script>
 </body>
